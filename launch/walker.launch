@@ -4,7 +4,7 @@
     <arg name = "rosbagEnable" default= "false" />
 
     <node
-        pkg="turtlebotNav"
+        pkg="turtlebot_nav"
         name="walker"
         type="walker"
         output="screen"
