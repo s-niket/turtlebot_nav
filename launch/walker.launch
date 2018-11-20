@@ -13,7 +13,7 @@
         pkg="rosbag"
         name="record"
         type="record"
-        args="-a -x /camera/(.*) -O $(find turtlebot_roomba)/results/roombatopics.bag"
+        args="-a -x /camera/(.*) -O $(find turtlebot_nav)/results/walkertopics.bag"
         if="$(arg rosbagEnable)"
     />
 
