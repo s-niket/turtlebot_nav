@@ -34,7 +34,7 @@
  * @author Niket Shah
  * @copyright 2018 BSD
  * @brief Implementation of header of Walker.hpp for navigation
- *  
+ *
  */
 
 #include <iostream>
@@ -42,17 +42,17 @@
 
 Walker::Walker() {
   velocity = nh.advertise <geometry_msgs::Twist>
-  ("/mobile_base/commands/velocity",500);
-   depth = nh.subscribe<sensor_msgs::LaserScan>
-  ("/scan",50, &ObstacleDetector::obstacleScanner, &obstacle);
-  
+  ("/mobile_base/commands/velocity", 500);
+  depth = nh.subscribe < sensor_msgs::LaserScan
+      > ("/scan", 50, &ObstacleDetector::obstacleScanner, &obstacle);
+
   msg.linear.x = 0.0;
   msg.linear.y = 0.0;
   msg.linear.z = 0.0;
   msg.angular.x = 0.0;
   msg.angular.y = 0.0;
   msg.angular.z = 0.0;
-  
+  // publish velocities for turtlebot
   velocity.publish(msg);
 }
 
@@ -63,17 +63,22 @@ Walker::~Walker() {
   msg.angular.x = 0.0;
   msg.angular.y = 0.0;
   msg.angular.z = 0.0;
-    
+
   velocity.publish(msg);
 }
 
 void Walker::navigation() {
+  // set loop rate
   ros::Rate loop_rate(10);
   while (ros::ok()) {
-    if(obstacle.detector()) {
+    // check if obstacle is close
+    if (obstacle.detector()) {
+      // stop linear motion
       msg.linear.x = 0.0;
+      // turn around z axis
       msg.angular.z = 1.0;
     } else {
+      // go forward if no obstacle
       msg.linear.x = 0.2;
       msg.angular.z = 0.0;
     }

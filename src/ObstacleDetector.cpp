@@ -50,6 +50,7 @@ ObstacleDetector::~ObstacleDetector() {
 void ObstacleDetector::obstacleScanner(
     const sensor_msgs::LaserScan::ConstPtr& msg) {
   for (int i = 0; i < msg->ranges.size(); i++) {
+    // check for obstacle
     if (msg->ranges[i] < 1) {
       obstacleFlag = true;
       return;

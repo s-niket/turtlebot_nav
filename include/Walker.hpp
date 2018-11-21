@@ -45,9 +45,12 @@
 #include "sensor_msgs/LaserScan.h"
 #include "ObstacleDetector.hpp"
 
+/* @brief Class Walker
+ *        To navigate turtlebot around objects
+ */
+
 class Walker {
  private:
-
   ros::NodeHandle nh;
   geometry_msgs::Twist msg;
   ros::Publisher velocity;
@@ -55,14 +58,30 @@ class Walker {
   ObstacleDetector obstacle;
 
  public:
-
+  /*
+   * @brief constructor for Walker class
+   *        Initializes values for linear and angular velocities
+   *        and publish and subscribe topics
+   * @param none
+   * @return void
+   */
   Walker();
 
+  /*
+   * @brief destructor for class Walker
+   *        Destroys the class when bot goes out of scope
+   * @param none
+   * @return void
+   */
 
   ~Walker();
 
 
+  /* @brief Function navigation
+   *        To navigate around the world and avoid obstacles
+   * @param none
+   * @return void
+   */
   void navigation();
-
 };
-#endif // INCLUDE_WALKER_HPP_
+#endif   // INCLUDE_WALKER_HPP_

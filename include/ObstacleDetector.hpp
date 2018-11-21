@@ -44,21 +44,44 @@
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/LaserScan.h"
 
-class ObstacleDetector {
-private:
+/*
+ * @brief Class ObstacleDetector
+ *        To detect presence of obstacles nearby
+ */
 
+class ObstacleDetector {
+ private:
   bool obstacleFlag;
 
-public:
+ public:
+  /*
+   * @brief Constructor for class
+   *        Initializes value of obstacle flag
+   * @param none
+   * @return void
+   */
+  ObstacleDetector();
 
- ObstacleDetector();
+  /* @brief destructor for class ObstacleDetector
+   *        To destroy the object
+   * @param none
+   * @return void
+   */
+  ~ObstacleDetector();
 
- ~ObstacleDetector();
+  /* @brief function obstacleScanner
+   *        To detect presence of obstacles nearby using laserscan
+   * @param msg of type sensor_msgs::LaserScan
+   * @return void
+   */
+  void obstacleScanner(const sensor_msgs::LaserScan::ConstPtr& msg);
 
- void obstacleScanner(const sensor_msgs::LaserScan::ConstPtr& msg);
-
-bool detector();
-
+  /* @brief function detector
+   *        To fetch value of obstacleFlag
+   * @param none
+   * @return void
+   */
+  bool detector();
 };
 
-#endif // INCLUDE_OBJECTDETECTOR_HPP
+#endif  // INCLUDE_OBSTACLEDETECTOR_HPP_
