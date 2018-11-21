@@ -51,6 +51,10 @@ in the /results directory under the name walkertopics.bag
 ```
 rosbag record -a
 ```
+To inspect a .bag file, type: 
+```
+rosbag info <bag-filename>.bag
+```
 To play back a .bag file, start roscore in one terminal and in other:
 ```
 cd ~/catkin_ws/src/turtlebot_nav/results
