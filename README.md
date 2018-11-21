@@ -3,7 +3,7 @@
 
 The turtlebot_nav package is a simple turtlebot navigator that detects obstacles and avoids them by rotating. 
 The simulation is done on ROS Gazebo. 
-![](images/turtlebot.JPG "Figure: Simulation on Gazebo")
+![](images/turtlebot.PNG "Figure: Simulation on Gazebo")
 ## Dependencies
 This project requires ROS Kinetic and catkin running on Ubuntu 16.04 LTS
 To install ROS Kinetic:
