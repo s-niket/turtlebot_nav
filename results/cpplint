@@ -1,0 +1,9 @@
+cpplint */*.cpp
+Done processing src/main.cpp
+Done processing src/ObstacleDetector.cpp
+Done processing src/Walker.cpp
+
+cpplint */*.hpp
+Done processing include/ObstacleDetector.hpp
+Done processing include/Walker.hpp
+
